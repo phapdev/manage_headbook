@@ -3,7 +3,7 @@ IDEA 11: Ý tưởng dự án quản lý sổ đầu bài
 
 
 ### Licensing
-NukeViet is released under GNU/GPL version 3 
+manage_headbook is released under GNU/GPL version 3 
 
 See <a href="https://github.com/phapdev/manage_headbook/blob/master/LICENSE" target="blank">
     LICENSE
@@ -14,7 +14,7 @@ See <a href="https://github.com/phapdev/manage_headbook/blob/master/LICENSE" tar
 You can directly download the code archive to your computer and then extract it to get the necessary files or clone it with Git:
 
 ```
-git clone https://github.com/FromSunNews/quanlysodaubai.git
+git clone https://github.com/phapdev/manage_headbook.git
 ```
 
 ### Error
