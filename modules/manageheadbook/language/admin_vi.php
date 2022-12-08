@@ -47,6 +47,8 @@ $lang_module['edit_student'] = 'Chỉnh sửa học sinh';
 
 $lang_module['sex0'] = 'Nữ';
 $lang_module['sex1'] = 'Nam';
+$lang_module['head_book'] = 'Sổ đầu bài';
+$lang_module['manage_headbook'] = 'Quản lý sổ đầu bài';
 
 
 

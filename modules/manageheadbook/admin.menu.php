@@ -17,3 +17,5 @@ $submenu['school_info'] = $lang_module['school_info'];
 $submenu['class'] = $lang_module['class'];
 
 $submenu['subject'] = $lang_module['subject'];
+
+$submenu['headbook'] = $lang_module['head_book'];
