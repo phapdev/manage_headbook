@@ -15,7 +15,7 @@ if (!defined('NV_ADMIN') or !defined('NV_MAINFILE')) {
 $lang_translator['author'] = 'Group DNTU';
 
 $lang_module['func'] = 'Chức năng';
-
+$lang_module['add'] = 'Thêm mới';
 
 $lang_module['addclass'] = 'Thêm lớp';
 $lang_module['class'] = 'Lớp học';
@@ -66,3 +66,12 @@ $lang_module['add_subject'] = 'Thêm môn học';
 $lang_module['edit_subject'] = 'Sửa môn học';
 $lang_module['subject_id'] = 'Mã môn học';
 $lang_module['subject_name'] = 'Tên môn học';
+
+
+$lang_module['add_week'] = 'Thêm tuần';
+$lang_module['edit_week'] = 'Chỉnh sửa tuần';
+$lang_module['school_year_list'] = 'Danh sách năm học';
+$lang_module['week_list'] = 'Danh sách tuần';
+$lang_module['start_time'] = 'Thời gian bắt đầu (dự kiến)';
+$lang_module['finish_time'] = 'Thời gian kết thúc (dự kiến)';
+$lang_module['add_year_title'] = 'Thêm năm học';
