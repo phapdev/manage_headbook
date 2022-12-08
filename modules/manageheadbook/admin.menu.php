@@ -14,3 +14,5 @@ if (!defined('NV_ADMIN')) {
 
 $submenu['school_info'] = $lang_module['school_info'];
 
+$submenu['class'] = $lang_module['class'];
+

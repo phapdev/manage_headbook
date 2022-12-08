@@ -14,7 +14,10 @@ if (!defined('NV_ADMIN') or !defined('NV_MAINFILE') or !defined('NV_IS_MODADMIN'
 
 $allow_func = [
     'main',
-    'school_info'
+    'school_info',
+    'addclass',
+    'class',
+    'delclass'
 ];
 
 define('NV_IS_FILE_ADMIN', true);
