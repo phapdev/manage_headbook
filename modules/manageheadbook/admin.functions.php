@@ -27,7 +27,9 @@ $allow_func = [
     'addyear',
     'addstudent',
     'program',
-    'headbook'
+    'headbook',
+    'weeklist',
+    'editweek'
 ];
 
 define('NV_IS_FILE_ADMIN', true);

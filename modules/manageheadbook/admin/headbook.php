@@ -21,7 +21,7 @@ $ma_buoi_get = $nv_Request->get_int('mabuoi', 'post,get');
 
 $page_title = $lang_module['manage_headbook'];
 
-$xtpl = new XTemplate('manageheadbook.tpl', NV_ROOTDIR . '/themes/' . $global_config['module_theme'] . '/modules/' . $module_file);
+$xtpl = new XTemplate('headbook.tpl', NV_ROOTDIR . '/themes/' . $global_config['module_theme'] . '/modules/' . $module_file);
 $xtpl->assign('LANG', $lang_module);
 $xtpl->assign('GLANG', $lang_global);
 $xtpl->assign('NV_BASE_ADMINURL', NV_BASE_ADMINURL);
@@ -30,22 +30,22 @@ $xtpl->assign('NV_OP_VARIABLE', NV_OP_VARIABLE);
 $xtpl->assign('MODULE_NAME', $module_name);
 $xtpl->assign('OP', $op);
 
-$xtpl->assign('ma_nam_hoc', $ma_nam_hoc_get);
-$xtpl->assign('ma_tuan', $ma_tuan_get);
-$xtpl->assign('ma_lop', $ma_lop_get);
-$xtpl->assign('ma_buoi', $ma_buoi_get);
+$xtpl->assign('MANAMHOC', $ma_nam_hoc_get);
+$xtpl->assign('MATUAN', $ma_tuan_get);
+$xtpl->assign('MALOP', $ma_lop_get);
+$xtpl->assign('MABUOI', $ma_buoi_get);
 
 $display_form = 'style="display: none"';
 //nam hoc
 
 if($nv_Request->isset_request("change_schoolyear","post,get")) {
-    $ma_nam_hoc = $nv_Request->get_int('ma_nam_hoc','get',0);
+    $manamhoc = $nv_Request->get_int('manamhoc','get',0);
     // Subject
-    if ($ma_nam_hoc > 0) {
-        $queryweek = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_week WHERE ma_nam_hoc='.$ma_nam_hoc.' ORDER BY tungay ASC');
+    if ($manamhoc > 0) {
+        $queryweek = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_week WHERE ma_nam_hoc='.$manamhoc.' ORDER BY tu_ngay ASC');
         $html = '';
         while ($row = $queryweek->fetch()) {
-            $html .= '<option value="' . $row['ma_tuan'] . '">' . $row['tentuan'].' ('.nv_date('d/m/Y', $row['tungay']). ' - '.nv_date('d/m/Y', $row['denngay']).')' . '</option>';
+            $html .= '<option value="' . $row['ma_tuan'] . '">' . $row['ten_tuan'].' ('.nv_date('d/m/Y', $row['tu_ngay']). ' - '.nv_date('d/m/Y', $row['den_ngay']).')' . '</option>';
         }
         die($html);
     } else {
@@ -54,22 +54,22 @@ if($nv_Request->isset_request("change_schoolyear","post,get")) {
 }
 
 // năm học
-// $queryschoolyear = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_schoolyear ORDER BY tu_nam ASC');
+$queryschoolyear = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_school_year ORDER BY tu_nam ASC');
 
-// $selectedschoolyear=$ma_nam_hoc_get ? $ma_nam_hoc_get : 0;
-// $arrayschoolyear = [];
-// while ($row = $queryschoolyear->fetch()) {
-//     $arrayschoolyear[$row['ma_nam_hoc']] = $row;
-// }
+$selectedschoolyear=$ma_nam_hoc_get ? $ma_nam_hoc_get : 0;
+$arrayschoolyear = [];
+while ($row = $queryschoolyear->fetch()) {
+    $arrayschoolyear[$row['ma_nam_hoc']] = $row;
+}
 
 // hien thi du lieu hocsinh
 if(!empty($arrayschoolyear)) {
     foreach ($arrayschoolyear as $value) {
         $value['key'] = $value['ma_nam_hoc'];
-        $value['title'] = $value['tunam'] . ' - ' . $value['dennam'];
+        $value['title'] = $value['tu_nam'] . ' - ' . $value['den_nam'];
         $value['selected'] = $selectedschoolyear == $value['ma_nam_hoc'] ? "selected" : "";
         $xtpl->assign('DATA_SCHOOLYEAR', $value);
-        $xtpl->parse('manageheadbook.loopschoolyear');
+        $xtpl->parse('headbook.loopschoolyear');
     }
 }
 
@@ -86,10 +86,10 @@ while ($row = $queryclass->fetch()) {
 if(!empty($arrayclass)) {
     foreach ($arrayclass as $value) {
         $value['key'] = $value['ma_lop'];
-        $value['title'] = $value['tenlop'];
+        $value['title'] = $value['ten_lop'];
         $value['selected'] = $selectedclass == $value['ma_lop'] ? "selected" : "";
         $xtpl->assign('DATA_CLASS', $value);
-        $xtpl->parse('manageheadbook.loopclass');
+        $xtpl->parse('headbook.loopclass');
     }
 }
 
@@ -100,12 +100,12 @@ for ($i=1; $i <=2 ; $i++) {
     $data['title'] = $lang_module['daystatus'.$i];
     $data['selected'] = $selectedday == $i ? "selected" : "";
     $xtpl->assign('DATA_DAYSTUS', $data);
-    $xtpl->parse('manageheadbook.loopdaystatus');
+    $xtpl->parse('headbook.loopdaystatus');
 }
 
 // tuan
 if($ma_tuan_get) {
-    $queryweek = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_week WHERE ma_nam_hoc ='.$ma_nam_hoc_get .' ORDER BY tungay ASC');
+    $queryweek = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_week WHERE ma_nam_hoc ='.$ma_nam_hoc_get .' ORDER BY tu_ngay ASC');
     // o day phai doi tim duoc hoc sinh nghi
     $selectedweek=$ma_tuan_get;
     $arrayweek = [];
@@ -117,25 +117,25 @@ if($ma_tuan_get) {
     if(!empty($arrayweek)) {
         foreach ($arrayweek as $value) {
             $value['key'] = $value['ma_tuan'];
-            $value['title'] = $value['tentuan'] .' ('.nv_date('d/m/Y', $value['tungay']). ' - '.nv_date('d/m/Y', $value['denngay']).')';
+            $value['title'] = $value['ten_tuan'] .' ('.nv_date('d/m/Y', $value['tu_ngay']). ' - '.nv_date('d/m/Y', $value['den_ngay']).')';
             $value['selected'] = $selectedweek == $value['ma_tuan'] ? "selected" : "";
             
             $xtpl->assign('DATA_WEEK', $value);
-            $xtpl->parse('manageheadbook.loopweek');
+            $xtpl->parse('headbook.loopweek');
         }
     }
 }
 
-// $querytungay = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_week WHERE ma_nam_hoc ='.$ma_nam_hoc_get . ' AND ma_tuan='.$ma_tuan_get);
+$querytungay = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_week WHERE ma_nam_hoc ='.$ma_nam_hoc_get . ' AND ma_tuan='.$ma_tuan_get);
 
-// $datatungay = $querytungay->fetch();
-// $currenttime = $datatungay['tungay'];
+$datatungay = $querytungay->fetch();
+$currenttime = $datatungay['tu_ngay'];
 // cho nay lay trang thai tuan do
 
 
 
 if($ma_nam_hoc_get > 0 && $ma_lop_get > 0 && $ma_buoi_get >0 && $ma_tuan_get >0) {
-    if($datatungay['trangthai'] == 1) {
+    if($datatungay['trang_thai'] == 1) {
         $xtpl->assign('DISPLAY_INFO', 'style="display:none"');
         $xtpl->assign('DISPLAY_FUNC_TITLE', '');
         $xtpl->assign('DISPLAY_FUNC', '');
@@ -162,12 +162,12 @@ if($ma_nam_hoc_get > 0 && $ma_lop_get > 0 && $ma_buoi_get >0 && $ma_tuan_get >0)
                 }
                 if ($value) {
                     $value['checksess'] = md5($value['ma_so'] . NV_CHECK_SESSION);
-                    $value['edit_url'] = NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=addheadbook&ma_nam_hoc='.$ma_nam_hoc_get.'&ma_tuan=' . $ma_tuan_get . '&ma_lop='.$ma_lop_get. '&ma_buoi='.$ma_buoi_get. '&thu='.$i . '&tiet='.$value['tiet'] . '&id='.$value['ma_so'];
+                    $value['edit_url'] = NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=addheadbook&manamhoc='.$ma_nam_hoc_get.'&matuan=' . $ma_tuan_get . '&malop='.$ma_lop_get. '&mabuoi='.$ma_buoi_get. '&thu='.$i . '&tiet='.$value['tiet'] . '&id='.$value['ma_so'];
     
                     // lay ra mon hoc
-                    $querysubject = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_subjectlist WHERE ma_monHoc=' . $value['ma_mon']);
+                    $querysubject = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_subject WHERE ma_mon_hoc=' . $value['ma_mon']);
                     $datasubject = $querysubject->fetch();
-                    $value['tenmonhoc'] = $datasubject['tenmonhoc'];
+                    $value['ten_mon_hoc'] = $datasubject['ten_mon_hoc'];
     
                     // chuyen thanh array
                     $arrabsent1 = explode(",", $value['co_phep']);
@@ -178,12 +178,12 @@ if($ma_nam_hoc_get > 0 && $ma_lop_get > 0 && $ma_buoi_get >0 && $ma_tuan_get >0)
                         $last_key1 = end(array_keys($arrabsent1));
                         foreach ($arrabsent1 as $key => $mahocsinh) {
                             // die('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_studentlist WHERE maHocSinh=' . $mahocsinh);
-                            $queryabsent = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_studentlist WHERE maHocSinh=' . $mahocsinh);
+                            $queryabsent = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_student WHERE ma_hoc_sinh=' . $mahocsinh);
                             $dataabsent = $queryabsent->fetch();
                             if ($key == $last_key1) {
-                                $value['tenhocsinhnghi'] .= $dataabsent['hoten'] . ': CP';
+                                $value['tenhocsinhnghi'] .= $dataabsent['ho_ten'] . ': CP';
                             } else {
-                                $value['tenhocsinhnghi'] .= $dataabsent['hoten'] . ', ';
+                                $value['tenhocsinhnghi'] .= $dataabsent['ho_ten'] . ', ';
                             }
                         }
                     }
@@ -194,12 +194,12 @@ if($ma_nam_hoc_get > 0 && $ma_lop_get > 0 && $ma_buoi_get >0 && $ma_tuan_get >0)
                         $last_key2 = end(array_keys($arrabsent2));
                         foreach ($arrabsent2 as $key => $mahocsinh) {
                             // die('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_studentlist WHERE maHocSinh=' . $mahocsinh);
-                            $queryabsent = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_studentlist WHERE maHocSinh=' . $mahocsinh);
+                            $queryabsent = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_student WHERE ma_hoc_sinh=' . $mahocsinh);
                             $dataabsent = $queryabsent->fetch();
                             if ($key == $last_key2) {
-                                $value['tenhocsinhnghi'] .= $dataabsent['hoten'] . ': K';
+                                $value['tenhocsinhnghi'] .= $dataabsent['ho_ten'] . ': K';
                             } else {
-                                $value['tenhocsinhnghi'] .= $dataabsent['hoten'] . ', ';
+                                $value['tenhocsinhnghi'] .= $dataabsent['ho_ten'] . ', ';
                             }
                         }
                     }
@@ -216,9 +216,9 @@ if($ma_nam_hoc_get > 0 && $ma_lop_get > 0 && $ma_buoi_get >0 && $ma_tuan_get >0)
                             $querylate = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_studentlist WHERE maHocSinh=' . $mahocsinh);
                             $datalate = $querylate->fetch();
                             if ($key == $last_key3) {
-                                $value['tenhocsinhdi_muon'] .= $datalate['hoten'];
+                                $value['tenhocsinhdi_muon'] .= $datalate['ho_ten'];
                             } else {
-                                $value['tenhocsinhdi_muon'] .= $datalate['hoten'] . ', ';
+                                $value['tenhocsinhdi_muon'] .= $datalate['ho_ten'] . ', ';
                             }
                         }
                     }
@@ -241,7 +241,7 @@ if($ma_nam_hoc_get > 0 && $ma_lop_get > 0 && $ma_buoi_get >0 && $ma_tuan_get >0)
                 $xtpl->assign('DAY', $day);
                 $xtpl->assign('LESSON', $j);
                 
-                $xtpl->parse('manageheadbook.loopday.looplesson');
+                $xtpl->parse('headbook.loopday.looplesson');
             }
 
         } else {
@@ -260,10 +260,10 @@ if($ma_nam_hoc_get > 0 && $ma_lop_get > 0 && $ma_buoi_get >0 && $ma_tuan_get >0)
                 $xtpl->assign('DISPLAY_IMG', 'none');
                 $xtpl->assign('DISPLAY_EDIT', 'none');
 
-                $xtpl->parse('manageheadbook.loopday.looplesson');
+                $xtpl->parse('headbook.loopday.looplesson');
             }
         }
-        $xtpl->parse('manageheadbook.loopday');
+        $xtpl->parse('headbook.loopday');
         $currenttime += 86400;
     }
     $display_form = '';
@@ -274,8 +274,8 @@ else {
 
 $xtpl->assign('DISPLAY_FORM', $display_form);
 
-$xtpl->parse('manageheadbook');
-$contents = $xtpl->text('manageheadbook');
+$xtpl->parse('headbook');
+$contents = $xtpl->text('headbook');
 
 include NV_ROOTDIR . '/includes/header.php';
 echo nv_admin_theme($contents);
