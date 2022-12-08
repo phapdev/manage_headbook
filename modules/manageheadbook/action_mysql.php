@@ -18,8 +18,10 @@ $sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lan
 $sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_class;';
 $sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_subject;';
 $sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_student;';
-$sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_school_years;';
-$sql_drop_module[] = "DROP TABLE IF EXISTS " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_headbook;";
+$sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_school_year;';
+$sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_week;';
+$sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_headbook;';
+
 $sql_create_module = $sql_drop_module;
 
 
@@ -91,3 +93,14 @@ $sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_
     ngay int(11) NOT NULL DEFAULT 0,
     PRIMARY KEY (ma_so)
   ) ENGINE=MyISAM;";
+
+    $sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_week (
+    ma_tuan int(11) NOT NULL AUTO_INCREMENT,
+    ma_nam_hoc int(11) NOT NULL,
+    tu_ngay int(11) NOT NULL,
+    den_ngay int(11) NOT NULL,
+    ten_tuan varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+    mo_ta varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    trang_thai tinyint(1) NOT NULL DEFAULT 1,
+    PRIMARY KEY (ma_tuan)
+    ) ENGINE=MyISAM;";
