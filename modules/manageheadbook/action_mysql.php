@@ -18,6 +18,9 @@ $sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lan
 $sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_class;';
 $sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_subject;';
 $sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_student;';
+$sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_school_year;';
+$sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_week;';
+$sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_program;';
 
 $sql_create_module = $sql_drop_module;
 
@@ -57,3 +60,34 @@ $sql_create_module[] = 'CREATE TABLE ' . $db_config['prefix'] . '_' . $lang . '_
     ten_mon_hoc varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
     PRIMARY KEY (ma_mon_hoc)
 ) ENGINE=MyISAM";
+
+$sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_school_year (
+    ma_nam_hoc int(11) NOT NULL AUTO_INCREMENT,
+    tu_nam int(11) NOT NULL,
+    den_nam int(11) NOT NULL,
+    thoi_gian_bat_dau int(11) NOT NULL,
+    thoi_gian_ket_thuc int(11) NOT NULL,
+    PRIMARY KEY (ma_nam_hoc)
+    ) ENGINE=MyISAM;";
+
+    $sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_week (
+    ma_tuan int(11) NOT NULL AUTO_INCREMENT,
+    ma_nam_hoc int(11) NOT NULL,
+    tu_ngay int(11) NOT NULL,
+    den_ngay int(11) NOT NULL,
+    ten_tuan varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+    mo_ta varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    trang_thai tinyint(1) NOT NULL DEFAULT 1,
+    PRIMARY KEY (ma_tuan)
+    ) ENGINE=MyISAM;";
+
+$sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_program (
+    ma_chuong_trinh int(11) NOT NULL AUTO_INCREMENT,
+    ma_nam_hoc int(11) DEFAULT NULL,
+    ma_mon_hoc int(11) DEFAULT NULL,
+    khoi int(2) NOT NULL,
+    tiet int(5) NOT NULL,
+    ten_bai_hoc varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+    PRIMARY KEY (ma_chuong_trinh)
+    ) ENGINE=MyISAM;";
+

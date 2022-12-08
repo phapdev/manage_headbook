@@ -17,3 +17,7 @@ $submenu['school_info'] = $lang_module['school_info'];
 $submenu['class'] = $lang_module['class'];
 
 $submenu['subject'] = $lang_module['subject'];
+
+$submenu['schoolyearlist'] = $lang_module['school_year_list'];
+
+$submenu['program'] = $lang_module['program'];
