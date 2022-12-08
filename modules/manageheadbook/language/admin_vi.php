@@ -47,8 +47,9 @@ $lang_module['edit_student'] = 'Chỉnh sửa học sinh';
 
 $lang_module['sex0'] = 'Nữ';
 $lang_module['sex1'] = 'Nam';
-
 $lang_module['head_book'] = 'Sổ đầu bài';
+$lang_module['manage_headbook'] = 'Quản lý sổ đầu bài';
+
 $lang_module['school_info'] = 'Thông tin trường học';
 $lang_module['department_name'] = 'Tên sở';
 $lang_module['room_name'] = 'Tên phòng';
@@ -69,6 +70,7 @@ $lang_module['school_year_list'] = 'Danh sách năm học';
 $lang_module['week_list'] = 'Danh sách tuần';
 $lang_module['start_time'] = 'Thời gian bắt đầu (dự kiến)';
 $lang_module['finish_time'] = 'Thời gian kết thúc (dự kiến)';
+
 $lang_module['add_year_title'] = 'Thêm năm học';
 
 //Phân phối chương trình
@@ -108,3 +110,4 @@ $lang_module['khoi9'] = '9';
 $lang_module['khoi10'] = '10';
 $lang_module['khoi11'] = '11';
 $lang_module['khoi12'] = '12';
+
