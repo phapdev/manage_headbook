@@ -32,7 +32,7 @@ $xtpl->assign('GLANG', $lang_global);
 if(!empty($arr_class)) { 
     foreach ($arr_class as $value) {
         $value['url_edit'] = NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=addclass&id=' . $value['ma_lop'];
-        $value['url_studentlist'] = NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE .'=studentlist&classlistid=' . $value['ma_lop'] ;
+        $value['url_studentlist'] = NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE .'=student&classid=' . $value['ma_lop'] ;
         $value['checksess'] = md5($value['ma_lop'] . NV_CHECK_SESSION);
 
         // gọi đến csdl để lấy tên giáo viên
@@ -40,7 +40,7 @@ if(!empty($arr_class)) {
         $rowteacher = $queryteacher->fetch();
 
         $value['ten_gvcn'] = $rowteacher['last_name'] . ' ' . $rowteacher['first_name'];
-        
+
         $xtpl->assign('DATA_CLASS', $value);
         $xtpl->parse('class.loop');
     }

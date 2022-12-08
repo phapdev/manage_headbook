@@ -31,8 +31,22 @@ $lang_module['edit_class'] = 'Chỉnh sửa lớp';
 $lang_module['class_delete_unsuccess'] = 'Xóa lớp không thành công!';
 $lang_module['choose_teacher'] = 'Chọn giáo viên chủ nhiệm';
 
+$lang_module['student_list'] = 'Danh sách học sinh';
 
-// $lang_module['class'] = '';
+$lang_module['stt'] = 'Số thứ tự';
+$lang_module['full_name'] = 'Họ tên';
+$lang_module['birthday'] = 'Ngày sinh';
+$lang_module['sex'] = 'Giới tính';
+$lang_module['class'] = 'Lớp';
+$lang_module['number_absent'] = 'Số tiết vắng';
+$lang_module['avatar'] = 'Ảnh đại diện';
+$lang_module['address'] = 'Địa chỉ';
+
+$lang_module['add_student'] = 'Thêm mới học sinh';
+
+
+
+
 
 
 $lang_module['head_book'] = 'Sổ đầu bài';
