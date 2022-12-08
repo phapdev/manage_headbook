@@ -24,8 +24,8 @@ $allow_func = [
     'addsubject',
     'delsubject',
     'schoolyearlist',
-    'addyear'
-    // 'addstudent',
+    'addyear',
+    'addstudent'
 ];
 
 define('NV_IS_FILE_ADMIN', true);

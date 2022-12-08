@@ -18,7 +18,7 @@
             <!-- BEGIN: loop -->
             <tr>
                 <td>{DATA_STUDENT.stt}</td>
-                <td class="text-center">{DATA_STUDENT.ho_ten}</td>
+                <td>{DATA_STUDENT.ho_ten}</td>
                 <td>{DATA_STUDENT.ngay_sinh}</td>
                 <td>{DATA_STUDENT.gioi_tinh}</td>
                 <td>{DATA_STUDENT.ten_lop}</td>
