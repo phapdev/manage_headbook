@@ -50,43 +50,43 @@ if(!empty($arraysubject)) {
 	}
 }
 
-$queryschoolyear = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_school_years');
+$queryschool_year = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_school_year');
 $i = 0;
-$selectedschoolyear;
-while ($row = $queryschoolyear->fetch()) {
-	$arrayschoolyear[$row['ma_nam_hoc']] = $row;
+$selectedschool_year;
+while ($row = $queryschool_year->fetch()) {
+	$arrayschool_year[$row['ma_nam_hoc']] = $row;
 	if($i ==0)
 	{
-		$selectedschoolyear = $row['ma_nam_hoc'];
+		$selectedschool_year = $row['ma_nam_hoc'];
 	}
 	$i++;
 }
 
-if(!empty($arrayschoolyear)) { 
-	foreach ($arrayschoolyear as $value) {
+if(!empty($arrayschool_year)) { 
+	foreach ($arrayschool_year as $value) {
 		$value['key'] = $value['ma_nam_hoc'];
 		$value['title'] = $value['tu_nam'] . ' - ' . $value['den_nam'];
-		$value['selected'] = $selectedschoolyear == $value['ma_nam_hoc'] ? "selected" : "";
-		$xtpl->assign('DATA_SCHOOL_YEARs', $value);
-		$xtpl->parse('main.loopschoolyear');
+		$value['selected'] = $selectedschool_year == $value['ma_nam_hoc'] ? "selected" : "";
+		$xtpl->assign('DATA_SCHOOL_YEAR', $value);
+		$xtpl->parse('main.loopschool_year');
 	}
 }
 
-$selectedkhoi = $lang_module['khoi'];
+$selectedgrade = $lang_module['grade'];
 for ($i = 1; $i <= 12; ++$i) {
 	$value = [
 		'key' => $i,
-		'title' => $lang_module['khoi' . $i],
-		'selected' => $selectedkhoi == $lang_module['khoi' . $i] ? ' selected="selected"' : ''
+		'title' => $lang_module['grade' . $i],
+		'selected' => $selectedgrade == $lang_module['grade' . $i] ? ' selected="selected"' : ''
 	];
-	$xtpl->assign('DATA_KHOI', $value);
-	$xtpl->parse('main.loopkhoi');
+	$xtpl->assign('DATA_GRADE', $value);
+	$xtpl->parse('main.loopgrade');
 }
 
 for ($i = 1; $i <= 12; ++$i) {
-	$khoi = nv_substr($nv_Request->get_title('khoi_' . $i, 'post', ''), 0, 250);
+	$grade = nv_substr($nv_Request->get_title('grade_' . $i, 'post', ''), 0, 250);
 }
-$khoi = $lang_module['khoi' . $khoi];
+$grade = $lang_module['grade' . $grade];
 
 if(!empty($arraysubject)) { 
 	foreach ($arraysubject as $value) {
@@ -94,9 +94,9 @@ if(!empty($arraysubject)) {
 	}
 }	
 
-if(!empty($arrayschoolyear)) { 
-	foreach ($arrayschoolyear as $value) {
-		$ma_nam_hoc = $nv_Request->get_int('schoolyear_' . $value['ma_nam_hoc'], 'post', '');
+if(!empty($arrayschool_year)) { 
+	foreach ($arrayschool_year as $value) {
+		$ma_nam_hoc = $nv_Request->get_int('school_year_' . $value['ma_nam_hoc'], 'post', '');
 	}
 }	
 
@@ -111,7 +111,7 @@ if ($nv_Request->isset_request('do', 'post')) {
         if (move_uploaded_file($_FILES['ufile']['tmp_name'], $file)) {
 			if (file_exists($file)) {
 	            try {
-	                $fileType = PHPExcel_IOFactory::identify($file);
+	                $fileType = PHPExcel_IOFactory::ma_chuong_trinhentify($file);
 	                $objReader = PHPExcel_IOFactory::createReader($fileType);
 	                $objPHPExcel = $objReader->load($file);
 	            } catch(Exception $e) {
@@ -129,19 +129,19 @@ if ($nv_Request->isset_request('do', 'post')) {
 		            }	
 							
 		            // Bắt đầu import vào database		
-					$db->query('DELETE FROM ' . NV_PREFIXLANG . '_' . $module_data . '_program WHERE ma_mon_hoc = ' . $ma_mon_hoc . ' AND ma_nam_hoc = ' . $ma_nam_hoc . ' AND khoi = ' . $khoi);	
+					$db->query('DELETE FROM ' . NV_PREFIXLANG . '_' . $module_data . '_program WHERE ma_mon_hoc = ' . $ma_mon_hoc . ' AND ma_nam_hoc = ' . $ma_nam_hoc . ' AND grade = ' . $grade);	
 					for($i = 1; $i <= $highestRow - 1; $i++) {
 						$tiet = $data[$i][0][0];
-						$ten_bai_hoc = $data[$i][0][1];	
+						$lesson = $data[$i][0][1];	
 						$_sql = 'INSERT INTO ' . NV_PREFIXLANG . '_' . $module_data . '_program
-							(ma_nam_hoc, khoi, ma_mon_hoc, tiet, ten_bai_hoc) VALUES
-							(:ma_nam_hoc, :khoi, :ma_mon_hoc, :tiet, :ten_bai_hoc)';						
+							(ma_nam_hoc, grade, ma_mon_hoc, tiet, lesson) VALUES
+							(:ma_nam_hoc, :grade, :ma_mon_hoc, :tiet, :lesson)';						
 						$sth = $db->prepare($_sql);
 						$sth->bindParam(':ma_nam_hoc', $ma_nam_hoc, PDO::PARAM_INT);
-						$sth->bindParam(':khoi', $khoi, PDO::PARAM_INT);
+						$sth->bindParam(':grade', $grade, PDO::PARAM_INT);
 						$sth->bindParam(':ma_mon_hoc', $ma_mon_hoc, PDO::PARAM_INT);
 						$sth->bindParam(':tiet', $tiet, PDO::PARAM_INT);
-						$sth->bindParam(':ten_bai_hoc', $ten_bai_hoc, PDO::PARAM_INT);
+						$sth->bindParam(':lesson', $lesson, PDO::PARAM_INT);
 						$sth->execute();
 						// die($sth);
 					}	
@@ -165,7 +165,7 @@ if ($nv_Request->isset_request('showall', 'post')) {
 	$query = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_program');
 	// Đổ dữ liệu
 	while ($row = $query->fetch()) {
-		$array[$row['id']] = $row;
+		$array[$row['ma_chuong_trinh']] = $row;
 	}
 	// hien thi du lieu 
 	if($array) { 
@@ -176,9 +176,9 @@ if ($nv_Request->isset_request('showall', 'post')) {
 			$row_selected_subject = $query_selected_subject->fetch();
 			$value['mon_hoc'] = $row_selected_subject['ten_mon_hoc'];
 
-			$query_school_years = $db->query("SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_school_years WHERE ma_nam_hoc=". $value['ma_nam_hoc']);              
-			$data_school_years = $query_school_years->fetch();
-			$value['nam_hoc'] = $data_school_years['tu_nam'] . ' - ' . $data_school_years['den_nam'];
+			$query_school_year = $db->query("SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_school_year WHERE ma_nam_hoc=". $value['ma_nam_hoc']);              
+			$data_school_year = $query_school_year->fetch();
+			$value['nam_hoc'] = $data_school_year['tu_nam'] . ' - ' . $data_school_year['den_nam'];
 
 			$xtpl->assign('DATA', $value);
 			$xtpl->parse('main.show.loop');
@@ -190,13 +190,13 @@ if ($nv_Request->isset_request('showall', 'post')) {
 // Khi nhấn Xem
 if ($nv_Request->isset_request('show', 'post')) {
 	// Gọi csdl để lấy dữ liệu
-	$query = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_program WHERE ma_mon_hoc = ' . $ma_mon_hoc . ' AND ma_nam_hoc = "' . $ma_nam_hoc . '" AND khoi = ' . $khoi);
+	$query = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_program WHERE ma_mon_hoc = ' . $ma_mon_hoc . ' AND ma_nam_hoc = "' . $ma_nam_hoc . '" AND grade = ' . $grade);
 	// Đổ dữ liệu
 	while ($row = $query->fetch()) {
-		$array[$row['id']] = $row;
+		$array[$row['ma_chuong_trinh']] = $row;
 	}
 	// hien thi du lieu 
-	if($array) { 
+
 		$i = 1;
 		foreach ($array as $value) {
 			$value['stt'] = $i++;
@@ -204,26 +204,26 @@ if ($nv_Request->isset_request('show', 'post')) {
 			$row_selected_subject = $query_selected_subject->fetch();
 			$value['mon_hoc'] = $row_selected_subject['ten_mon_hoc'];
 
-			$query_school_years = $db->query("SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_school_years WHERE ma_nam_hoc=". $value['ma_nam_hoc']);              
-			$data_school_years = $query_school_years->fetch();
-			$value['nam_hoc'] = $data_school_years['tu_nam'] . ' - ' . $data_school_years['den_nam'];
+			$query_school_year = $db->query("SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_school_year WHERE ma_nam_hoc=". $value['ma_nam_hoc']);              
+			$data_school_year = $query_school_year->fetch();
+			$value['nam_hoc'] = $data_school_year['tu_nam'] . ' - ' . $data_school_year['den_nam'];
 
 			$xtpl->assign('DATA', $value);
 			$xtpl->parse('main.show.loop');
 		}
-	}	
+	
 	$xtpl->parse('main.show');
 }
 
 if ($nv_Request->isset_request('del', 'post')) {
-	if($ma_mon_hoc && $ma_nam_hoc && $khoi) {
-		$query = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_program WHERE ma_mon_hoc = ' . $ma_mon_hoc . ' AND ma_nam_hoc = "' . $ma_nam_hoc . '" AND khoi = ' . $khoi);		
+	if($ma_mon_hoc && $ma_nam_hoc && $grade) {
+		$query = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_program WHERE ma_mon_hoc = ' . $ma_mon_hoc . ' AND ma_nam_hoc = "' . $ma_nam_hoc . '" AND grade = ' . $grade);		
 		if($query) {
 			while ($row = $query->fetch()) {
-				$array[$row['malop']] = $row;
+				$array[$row['ma_lop']] = $row;
 			}
 			if($array) {
-				$db->query('DELETE FROM ' . NV_PREFIXLANG . '_' . $module_data . '_program WHERE ma_mon_hoc = ' . $ma_mon_hoc . ' AND ma_nam_hoc = "' . $ma_nam_hoc . '" AND khoi = ' . $khoi);		
+				$db->query('DELETE FROM ' . NV_PREFIXLANG . '_' . $module_data . '_program WHERE ma_mon_hoc = ' . $ma_mon_hoc . ' AND ma_nam_hoc = "' . $ma_nam_hoc . '" AND grade = ' . $grade);		
 				$success = $lang_module['delete_success'];
 			}
 			else
@@ -238,7 +238,7 @@ if ($nv_Request->isset_request('delall', 'post')) {
 	$query = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_program');		
 	if($query) {
 		while ($row = $query->fetch()) {
-			$array[$row['malop']] = $row;
+			$array[$row['ma_lop']] = $row;
 		}
 		if($array) {
 			$db->query('DELETE FROM ' . NV_PREFIXLANG . '_' . $module_data . '_program');		

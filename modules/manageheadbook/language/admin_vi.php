@@ -1,4 +1,4 @@
-<<?php
+<?php
 
 /**
  * Headbook Management System
@@ -93,21 +93,21 @@ $lang_module['import_success'] = 'Import thành công !';
 $lang_module['delete_success'] = 'Xóa thành công !';
 $lang_module['config'] = 'Cấu hình';
 
-$lang_module['namhoc'] = 'Năm học';
-$lang_module['khoi'] = 'Khối';
+$lang_module['school_year'] = 'Năm học';
+$lang_module['grade'] = 'Khối';
 $lang_module['tiet'] = 'Tiết';
-$lang_module['tenbaihoc'] = 'Tên bài học';
+$lang_module['lesson'] = 'Tên bài học';
 
-$lang_module['khoi1'] = '1';
-$lang_module['khoi2'] = '2';
-$lang_module['khoi3'] = '3';
-$lang_module['khoi4'] = '4';
-$lang_module['khoi5'] = '5';
-$lang_module['khoi6'] = '6';
-$lang_module['khoi7'] = '7';
-$lang_module['khoi8'] = '8';
-$lang_module['khoi9'] = '9';
-$lang_module['khoi10'] = '10';
-$lang_module['khoi11'] = '11';
-$lang_module['khoi12'] = '12';
+$lang_module['grade1'] = '1';
+$lang_module['grade2'] = '2';
+$lang_module['grade3'] = '3';
+$lang_module['grade4'] = '4';
+$lang_module['grade5'] = '5';
+$lang_module['grade6'] = '6';
+$lang_module['grade7'] = '7';
+$lang_module['grade8'] = '8';
+$lang_module['grade9'] = '9';
+$lang_module['grade10'] = '10';
+$lang_module['grade11'] = '11';
+$lang_module['grade12'] = '12';
 
