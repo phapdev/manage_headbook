@@ -18,4 +18,6 @@ $submenu['class'] = $lang_module['class'];
 
 $submenu['subject'] = $lang_module['subject'];
 
+$submenu['headbook'] = $lang_module['head_book'];
 $submenu['schoolyearlist'] = $lang_module['school_year_list'];
+

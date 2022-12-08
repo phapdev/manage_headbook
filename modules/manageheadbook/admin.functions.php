@@ -23,6 +23,8 @@ $allow_func = [
     'subject',
     'addsubject',
     'delsubject',
+    'addstudent',
+    'headbook',
     'schoolyearlist',
     'addyear',
     'addstudent'
