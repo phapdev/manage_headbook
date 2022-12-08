@@ -45,5 +45,6 @@ $lang_module['save'] = 'Lưu thay đổi';
 
 $lang_module['subject'] = 'Môn học';
 $lang_module['add_subject'] = 'Thêm môn học';
+$lang_module['edit_subject'] = 'Sửa môn học';
 $lang_module['subject_id'] = 'Mã môn học';
 $lang_module['subject_name'] = 'Tên môn học';
