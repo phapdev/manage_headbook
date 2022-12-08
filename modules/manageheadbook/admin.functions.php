@@ -26,6 +26,7 @@ $allow_func = [
     'schoolyearlist',
     'addyear',
     'addstudent',
+    'addheadbook',
     'program',
     'headbook',
     'weeklist',
