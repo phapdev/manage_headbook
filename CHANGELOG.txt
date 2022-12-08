@@ -1,4 +1,9 @@
 CHANGE LOG: MANAGE HEADBOOK
+Final-Release
 
-MANAGEHEADBOOKmanage_headbook 4.5.01
-- Module manage_headbook : create module manage_headbook
+-subject : create, edit, delete, show subject
+-school_info: edit and update school school_info
+-class: create, edit, delete, show class and show student list
+-student: create, edit, delete and show student 
+-list_school_year: edit, delete
+headbook: edit, delete
