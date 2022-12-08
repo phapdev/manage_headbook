@@ -49,3 +49,16 @@ $lang_module['add_student'] = 'Thêm mới học sinh';
 
 
 
+$lang_module['head_book'] = 'Sổ đầu bài';
+$lang_module['school_info'] = 'Thông tin trường học';
+$lang_module['department_name'] = 'Tên sở';
+$lang_module['room_name'] = 'Tên phòng';
+$lang_module['school_name'] = 'Tên trường';
+$lang_module['school_year'] = 'Năm học';
+$lang_module['save'] = 'Lưu thay đổi';
+
+$lang_module['subject'] = 'Môn học';
+$lang_module['add_subject'] = 'Thêm môn học';
+$lang_module['edit_subject'] = 'Sửa môn học';
+$lang_module['subject_id'] = 'Mã môn học';
+$lang_module['subject_name'] = 'Tên môn học';

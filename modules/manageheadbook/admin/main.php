@@ -12,7 +12,7 @@ if (!defined('NV_IS_FILE_ADMIN')) {
     exit('Stop!!!');
 }
 
-$page_title = $lang_module[''];
+$page_title = $lang_module['head_book'];
 
 
 include NV_ROOTDIR . '/includes/header.php';
