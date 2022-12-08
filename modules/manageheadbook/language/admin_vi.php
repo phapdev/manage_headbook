@@ -14,5 +14,12 @@ if (!defined('NV_ADMIN') or !defined('NV_MAINFILE')) {
 
 $lang_translator['author'] = 'Group DNTU';
 
+$lang_module['manage_headbook'] = 'Quản lý sổ đầu bài';
+$lang_module['subject'] = 'Môn học';
+$lang_module['add_subject'] = 'Thêm môn học';
+$lang_module['subject_id'] = 'Mã môn học';
+$lang_module['subject_name'] = 'Tên môn học';
 
-$lang_module[''] = '';
+$lang_module['save'] = 'Lưu';
+
+

@@ -14,6 +14,9 @@ if (!defined('NV_ADMIN') or !defined('NV_MAINFILE') or !defined('NV_IS_MODADMIN'
 
 $allow_func = [
     'main',
+    'subject',
+    'addsubject',
+    'delsubject'
 ];
 
 define('NV_IS_FILE_ADMIN', true);
