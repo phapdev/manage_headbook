@@ -20,6 +20,8 @@ $sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lan
 $sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_student;';
 $sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_school_year;';
 $sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_week;';
+$sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_program;';
+$sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_headbook;';
 
 $sql_create_module = $sql_drop_module;
 
@@ -67,7 +69,32 @@ $sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_
     thoi_gian_bat_dau int(11) NOT NULL,
     thoi_gian_ket_thuc int(11) NOT NULL,
     PRIMARY KEY (ma_nam_hoc)
-    ) ENGINE=MyISAM;";
+) ENGINE=MyISAM;";
+
+
+$sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_headbook (
+    ma_so int(11) NOT NULL AUTO_INCREMENT,
+    ma_tuan int(11) NOT NULL,
+    ma_lop int(11) NOT NULL,
+    ma_buoi int(1) NOT NULL,
+    thu varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+    tiet int(1) NOT NULL,
+    ma_mon int(11) NOT NULL,
+    tiet_ppct int(11) NOT NULL,
+    co_phep varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT 0,
+    khong_phep varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT 0,
+    di_muon varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT 0,
+    ten_bai_hoc varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    nhan_xet varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+    hoc_tap float NOT NULL,
+    ky_luat float NOT NULL,
+    ve_sinh float NOT NULL,
+    tong_diem float NOT NULL,
+    ki_ten varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    ngay int(11) NOT NULL DEFAULT 0,
+    PRIMARY KEY (ma_so)
+  ) ENGINE=MyISAM;";
+
 
     $sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_week (
     ma_tuan int(11) NOT NULL AUTO_INCREMENT,
@@ -79,3 +106,15 @@ $sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_
     trang_thai tinyint(1) NOT NULL DEFAULT 1,
     PRIMARY KEY (ma_tuan)
     ) ENGINE=MyISAM;";
+
+
+$sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_program (
+    ma_chuong_trinh int(11) NOT NULL AUTO_INCREMENT,
+    ma_nam_hoc int(11) DEFAULT NULL,
+    ma_mon_hoc int(11) DEFAULT NULL,
+    khoi int(2) NOT NULL,
+    tiet int(5) NOT NULL,
+    ten_bai_hoc varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+    PRIMARY KEY (ma_chuong_trinh)
+    ) ENGINE=MyISAM;";
+
