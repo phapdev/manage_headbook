@@ -16,7 +16,10 @@ $allow_func = [
     'main',
     'addclass',
     'class',
-    'delclass'
+    'delclass',
+    'student',
+    // 'addstudent',
+    'delstudent'
 ];
 
 define('NV_IS_FILE_ADMIN', true);
