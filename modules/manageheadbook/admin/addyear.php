@@ -63,7 +63,7 @@ if ($nv_Request->isset_request('btnsubmit', 'post')) {
     $query = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_school_year WHERE tu_nam='. $row['tu_nam'] .' AND den_nam=' . $row['den_nam'].' AND thoi_gian_bat_dau=' . $row['thoi_gian_bat_dau'] .' AND thoi_gian_ket_thuc=' . $row['thoi_gian_ket_thuc']);
 
     // đổ dữ liệu
-    $dataschoolyear = $query->fetch();
+    $data_school_year = $query->fetch();
     
 
     $time_per_week = 86400 * 7;
@@ -87,9 +87,9 @@ if ($nv_Request->isset_request('btnsubmit', 'post')) {
         $den_ngay = $time_from_day + $i * $time_per_week + $time_per_week - $time_per_1day;
         $ten_tuan ='Tuần ' . ($i+1);
         if ($sum_time > $time_to_day) 
-            $_sqlweek = $_sqlweek . " (". $dataschoolyear['ma_nam_hoc'].", ".$tu_ngay.", ".$den_ngay.", '".$ten_tuan."');";
+            $_sqlweek = $_sqlweek . " (". $data_school_year['ma_nam_hoc'].", ".$tu_ngay.", ".$den_ngay.", '".$ten_tuan."');";
         else 
-            $_sqlweek = $_sqlweek . " (". $dataschoolyear['ma_nam_hoc'].", ".$tu_ngay.", ".$den_ngay.", '".$ten_tuan."'),";
+            $_sqlweek = $_sqlweek . " (". $data_school_year['ma_nam_hoc'].", ".$tu_ngay.", ".$den_ngay.", '".$ten_tuan."'),";
     }
     // die($_sqlweek);
     $db->query($_sqlweek);

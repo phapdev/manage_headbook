@@ -16,6 +16,7 @@ $lang_translator['author'] = 'Group DNTU';
 
 $lang_module['func'] = 'Chức năng';
 $lang_module['add'] = 'Thêm mới';
+$lang_module['desc'] = 'Mô tả';
 
 $lang_module['addclass'] = 'Thêm lớp';
 $lang_module['class'] = 'Lớp học';
@@ -105,6 +106,7 @@ $lang_module['export_headbook'] = 'Xuất File sổ đầu bài';
 
 
 $lang_module['head_book'] = 'Sổ đầu bài';
+
 $lang_module['school_info'] = 'Thông tin trường học';
 $lang_module['department_name'] = 'Tên sở';
 $lang_module['room_name'] = 'Tên phòng';
@@ -126,3 +128,52 @@ $lang_module['week_list'] = 'Danh sách tuần';
 $lang_module['start_time'] = 'Thời gian bắt đầu (dự kiến)';
 $lang_module['finish_time'] = 'Thời gian kết thúc (dự kiến)';
 $lang_module['add_year_title'] = 'Thêm năm học';
+
+$lang_module['week_name'] = 'Tên tuần';
+$lang_module['from_day'] = 'Từ ngày';
+$lang_module['to_day'] = 'Đến ngày';
+$lang_module['desc'] = 'Mô tả';
+$lang_module['validate'] = 'Hiệu lực';
+
+$lang_module['add_year_title'] = 'Thêm năm học';
+
+//Phân phối chương trình
+$lang_module['program'] = 'Chương trình';
+$lang_module['import'] = 'Import';
+$lang_module['show_program'] = 'Xem chương trình';
+$lang_module['show_all'] = 'Xem tất cả';
+$lang_module['del_program'] = 'Xóa chương trình';
+$lang_module['del_all'] = 'Xóa tất cả';
+
+$lang_module['upload_file_excel'] = 'Chọn file Excel';
+$lang_module['require_select_correct_file'] = 'File phải đúng định dạng theo mẫu';
+$lang_module['here'] = 'tại đây';
+$lang_module['error_cannot_read_file'] = 'Lỗi không thể đọc file';
+$lang_module['error_upload_file'] = 'Lỗi upload file';
+$lang_module['error_dont_have_file'] = 'Vui lòng chọn file';
+$lang_module['error_delete'] = 'Chưa xóa được dữ liệu';
+$lang_module['error_delete_null'] = 'Không tìm thấy dữ liệu';
+$lang_module['import_success'] = 'Import thành công !';
+$lang_module['delete_success'] = 'Xóa thành công !';
+$lang_module['config'] = 'Cấu hình';
+
+$lang_module['school_year'] = 'Năm học';
+$lang_module['grade'] = 'Khối';
+$lang_module['tiet'] = 'Tiết';
+
+$lang_module['lesson'] = 'Tên bài học';
+
+$lang_module['grade1'] = '1';
+$lang_module['grade2'] = '2';
+$lang_module['grade3'] = '3';
+$lang_module['grade4'] = '4';
+$lang_module['grade5'] = '5';
+$lang_module['grade6'] = '6';
+$lang_module['grade7'] = '7';
+$lang_module['grade8'] = '8';
+$lang_module['grade9'] = '9';
+$lang_module['grade10'] = '10';
+$lang_module['grade11'] = '11';
+$lang_module['grade12'] = '12';
+
+

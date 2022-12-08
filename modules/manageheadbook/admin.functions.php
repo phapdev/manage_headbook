@@ -23,12 +23,14 @@ $allow_func = [
     'subject',
     'addsubject',
     'delsubject',
-    'addstudent',
-    'headbook',
     'schoolyearlist',
     'addyear',
     'addstudent',
     'addheadbook',
+    'program',
+    'headbook',
+    'weeklist',
+    'editweek'
 ];
 
 define('NV_IS_FILE_ADMIN', true);
