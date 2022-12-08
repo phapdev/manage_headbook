@@ -49,3 +49,21 @@ function change_schoolyear() {
 		}
   }});
 }
+
+function change_name_lesson() {
+	var mappct = $('#name_lesson').val();
+	$.ajax({url: script_name + '?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=addheadbook&change_name_lesson=1&mappct=' + mappct, success: function(result){
+		if (result != 'ERR') {
+			$("#lesson_number").val(result);
+		}
+  }});
+}
+
+function change_subject(khoi) {
+	var mamonhoc = $('#subject').val();
+	$.ajax({url: script_name + '?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=addheadbook&change_subject=1&mamonhoc=' + mamonhoc+'&khoi='+khoi, success: function(result){
+		if (result != 'ERR') {
+			$('#name_lesson').html(result);
+		}
+  }});
+}

@@ -232,7 +232,7 @@ if($ma_nam_hoc_get > 0 && $ma_lop_get > 0 && $ma_buoi_get >0 && $ma_tuan_get >0)
                     $xtpl->assign('DISPLAY_IMG', 'block');
                 } else {
     
-                    $value['add_url'] = NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=addheadbook&ma_nam_hoc='.$ma_nam_hoc_get.'&ma_tuan='.$ma_tuan_get.'&ma_lop='.$ma_lop_get.'&ma_buoi='.$ma_buoi_get.'&thu='.$i . '&tiet='.$j;
+                    $value['add_url'] = NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=addheadbook&manamhoc='.$ma_nam_hoc_get.'&matuan='.$ma_tuan_get.'&malop='.$ma_lop_get.'&mabuoi='.$ma_buoi_get.'&thu='.$i . '&tiet='.$j;
                     $xtpl->assign('DISPLAY_ADD', 'block');
                     $xtpl->assign('DISPLAY_EDIT', 'none');
                     $xtpl->assign('DISPLAY_IMG', 'none');
@@ -251,7 +251,7 @@ if($ma_nam_hoc_get > 0 && $ma_lop_get > 0 && $ma_buoi_get >0 && $ma_tuan_get >0)
                 if ($j== 1) {
                     $day = '<td rowspan="5" align="center" style="vertical-align:middle;font-weight:600">'. $lang_module['day'.$i] .'<br />'.nv_date('d/m/Y',$currenttime).'</td>';
                 }
-                $value['add_url'] = NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=addheadbook&ma_nam_hoc='.$ma_nam_hoc_get.'&ma_tuan='.$ma_tuan_get.'&ma_lop='.$ma_lop_get.'&ma_buoi='.$ma_buoi_get.'&thu='.$i . '&tiet='.$j;
+                $value['add_url'] = NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=addheadbook&manamhoc='.$ma_nam_hoc_get.'&matuan='.$ma_tuan_get.'&malop='.$ma_lop_get.'&mabuoi='.$ma_buoi_get.'&thu='.$i . '&tiet='.$j;
     
                 $xtpl->assign('DATA', $value);
                 $xtpl->assign('DAY', $day);
