@@ -40,3 +40,12 @@ function nv_del_subject(ma_mon_hoc, checkss) {
 	}
 	return false;
 }
+
+function change_schoolyear() {
+	var manamhoc = $('#schoolyear').val();
+	$.ajax({url: script_name + '?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=headbook&change_schoolyear=1&manamhoc=' + manamhoc, success: function(result){
+		if (result != 'ERR') {
+			$("#week").append(result);
+		}
+  }});
+}

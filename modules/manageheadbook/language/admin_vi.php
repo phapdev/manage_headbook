@@ -50,6 +50,62 @@ $lang_module['sex1'] = 'Nam';
 $lang_module['head_book'] = 'Sổ đầu bài';
 $lang_module['manage_headbook'] = 'Quản lý sổ đầu bài';
 
+
+$lang_module['day'] = 'Thứ, ngày';
+$lang_module['lesson'] = 'Tiết';
+$lang_module['subject'] = 'Môn';
+$lang_module['lesson_program'] = 'Tiết PPCT';
+$lang_module['student_absent'] = 'Học sinh vắng';
+$lang_module['name_lesson'] = 'Tên bài học, nội dung công việc';
+$lang_module['comment'] = 'Nhận xét';
+$lang_module['mark'] = 'Điểm';
+$lang_module['study'] = 'Học tập';
+$lang_module['discipline'] = 'Kỷ luật';
+$lang_module['clean'] = 'Vệ sinh';
+$lang_module['total_point'] = 'Tổng điểm';
+$lang_module['teacher_sign'] = 'GV dạy kí tên';
+$lang_module['week'] = 'Tuần';
+$lang_module['from_day'] = 'Từ Ngày';
+$lang_module['to_day'] = 'Đến Ngày';
+$lang_module['week_summary'] = 'Tổng Kết Tuần';
+$lang_module['absent'] = 'Vắng';
+$lang_module['in_there'] = 'Trong đó';
+$lang_module['late'] = 'Đi học muộn';
+$lang_module['other_violation'] = 'Vi phạm khác';
+$lang_module['weekend_point'] = 'Điểm cuối tuần';
+$lang_module['minus_points'] = 'Điểm trừ (HS vắng)';
+$lang_module['average_week'] = 'Điểm TB của tuần';
+$lang_module['good_study_week'] = 'Đạt tuần học tốt';
+$lang_module['ranking'] = 'Xếp thứ';
+$lang_module['num_lesson_teacher_nosign'] = 'Số tiết GVBM không kí';
+$lang_module['comment_sub_teacher'] = 'Kiến nghị của GVBM';
+$lang_module['comment_main_teacher'] = 'Ý kiến của GVCN';
+$lang_module['comment_TPTD'] = 'Xác nhận của Tổng PT Đội';
+$lang_module['comment_BGH'] = 'Nhận xét của Ban Giám Hiệu';
+$lang_module['total_weekend'] = 'Tổng điểm cuối tuần';
+$lang_module['num_lesson_supplant'] = 'Số tiết dạy thay/dạy bù';
+$lang_module['of_subjects'] = 'Thuộc các môn';
+
+$lang_module['day2'] = 'Thứ 2';
+$lang_module['day3'] = 'Thứ 3';
+$lang_module['day4'] = 'Thứ 4';
+$lang_module['day5'] = 'Thứ 5';
+$lang_module['day6'] = 'Thứ 6';
+$lang_module['day7'] = 'Thứ 7';
+$lang_module['day8'] = 'Chủ Nhật';
+
+$lang_module['daystatus1'] = 'Buổi Sáng';
+$lang_module['daystatus2'] = 'Buổi Chiều';
+
+$lang_module['week_display'] = 'Hiển thị sổ đầu bài';
+$lang_module['export_headbook'] = 'Xuất File sổ đầu bài';
+
+
+
+
+
+$lang_module['head_book'] = 'Sổ đầu bài';
+
 $lang_module['school_info'] = 'Thông tin trường học';
 $lang_module['department_name'] = 'Tên sở';
 $lang_module['room_name'] = 'Tên phòng';
