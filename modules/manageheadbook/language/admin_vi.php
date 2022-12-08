@@ -43,6 +43,10 @@ $lang_module['avatar'] = 'Ảnh đại diện';
 $lang_module['address'] = 'Địa chỉ';
 
 $lang_module['add_student'] = 'Thêm mới học sinh';
+$lang_module['edit_student'] = 'Chỉnh sửa học sinh';
+
+$lang_module['sex0'] = 'Nữ';
+$lang_module['sex1'] = 'Nam';
 
 
 

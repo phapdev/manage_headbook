@@ -18,6 +18,7 @@ $sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lan
 $sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_class;';
 $sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_subject;';
 $sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_student;';
+$sql_drop_module[] = 'DROP TABLE IF EXISTS ' . $db_config['prefix'] . '_' . $lang . '_' . $module_data . '_school_years;';
 
 $sql_create_module = $sql_drop_module;
 
@@ -57,3 +58,12 @@ $sql_create_module[] = 'CREATE TABLE ' . $db_config['prefix'] . '_' . $lang . '_
     ten_mon_hoc varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
     PRIMARY KEY (ma_mon_hoc)
 ) ENGINE=MyISAM";
+
+$sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_school_years (
+    ma_nam_hoc int(11) NOT NULL AUTO_INCREMENT,
+    tu_nam int(11) NOT NULL,
+    den_nam int(11) NOT NULL,
+    thoi_gian_bat_dau int(11) NOT NULL,
+    thoi_gian_ket_thuc int(11) NOT NULL,
+    PRIMARY KEY (ma_nam_hoc)
+) ENGINE=MyISAM;";
