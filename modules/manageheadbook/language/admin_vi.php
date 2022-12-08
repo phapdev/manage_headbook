@@ -1,4 +1,4 @@
-<?php
+<<?php
 
 /**
  * Headbook Management System
@@ -105,6 +105,7 @@ $lang_module['export_headbook'] = 'Xuất File sổ đầu bài';
 
 
 $lang_module['head_book'] = 'Sổ đầu bài';
+
 $lang_module['school_info'] = 'Thông tin trường học';
 $lang_module['department_name'] = 'Tên sở';
 $lang_module['room_name'] = 'Tên phòng';
@@ -125,4 +126,44 @@ $lang_module['school_year_list'] = 'Danh sách năm học';
 $lang_module['week_list'] = 'Danh sách tuần';
 $lang_module['start_time'] = 'Thời gian bắt đầu (dự kiến)';
 $lang_module['finish_time'] = 'Thời gian kết thúc (dự kiến)';
+
 $lang_module['add_year_title'] = 'Thêm năm học';
+
+//Phân phối chương trình
+$lang_module['program'] = 'Chương trình';
+$lang_module['import'] = 'Import';
+$lang_module['show_program'] = 'Xem chương trình';
+$lang_module['show_all'] = 'Xem tất cả';
+$lang_module['del_program'] = 'Xóa chương trình';
+$lang_module['del_all'] = 'Xóa tất cả';
+
+$lang_module['upload_file_excel'] = 'Chọn file Excel';
+$lang_module['require_select_correct_file'] = 'File phải đúng định dạng theo mẫu';
+$lang_module['here'] = 'tại đây';
+$lang_module['error_cannot_read_file'] = 'Lỗi không thể đọc file';
+$lang_module['error_upload_file'] = 'Lỗi upload file';
+$lang_module['error_dont_have_file'] = 'Vui lòng chọn file';
+$lang_module['error_delete'] = 'Chưa xóa được dữ liệu';
+$lang_module['error_delete_null'] = 'Không tìm thấy dữ liệu';
+$lang_module['import_success'] = 'Import thành công !';
+$lang_module['delete_success'] = 'Xóa thành công !';
+$lang_module['config'] = 'Cấu hình';
+
+$lang_module['namhoc'] = 'Năm học';
+$lang_module['khoi'] = 'Khối';
+$lang_module['tiet'] = 'Tiết';
+$lang_module['tenbaihoc'] = 'Tên bài học';
+
+$lang_module['khoi1'] = '1';
+$lang_module['khoi2'] = '2';
+$lang_module['khoi3'] = '3';
+$lang_module['khoi4'] = '4';
+$lang_module['khoi5'] = '5';
+$lang_module['khoi6'] = '6';
+$lang_module['khoi7'] = '7';
+$lang_module['khoi8'] = '8';
+$lang_module['khoi9'] = '9';
+$lang_module['khoi10'] = '10';
+$lang_module['khoi11'] = '11';
+$lang_module['khoi12'] = '12';
+
