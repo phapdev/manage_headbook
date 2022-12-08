@@ -16,6 +16,7 @@ $lang_translator['author'] = 'Group DNTU';
 
 $lang_module['func'] = 'Chức năng';
 $lang_module['add'] = 'Thêm mới';
+$lang_module['desc'] = 'Mô tả';
 
 $lang_module['addclass'] = 'Thêm lớp';
 $lang_module['class'] = 'Lớp học';
@@ -75,3 +76,9 @@ $lang_module['week_list'] = 'Danh sách tuần';
 $lang_module['start_time'] = 'Thời gian bắt đầu (dự kiến)';
 $lang_module['finish_time'] = 'Thời gian kết thúc (dự kiến)';
 $lang_module['add_year_title'] = 'Thêm năm học';
+
+$lang_module['week_name'] = 'Tên tuần';
+$lang_module['from_day'] = 'Từ ngày';
+$lang_module['to_day'] = 'Đến ngày   ';
+$lang_module['desc'] = 'Mô tả';
+$lang_module['validate'] = 'Hiệu lực';
