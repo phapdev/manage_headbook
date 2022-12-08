@@ -39,7 +39,8 @@ if(!empty($arr_class)) {
         $queryteacher = $db->query('SELECT * FROM nv4_users WHERE userid = ' . $value['ma_gvcn'] );
         $rowteacher = $queryteacher->fetch();
 
-        $value['teacher'] = $rowteacher['first_name'] . ' ' . $rowteacher['last_name'];
+        $value['ten_gvcn'] = $rowteacher['last_name'] . ' ' . $rowteacher['first_name'];
+        
         $xtpl->assign('DATA_CLASS', $value);
         $xtpl->parse('class.loop');
     }

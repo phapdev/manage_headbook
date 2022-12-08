@@ -27,7 +27,11 @@ $lang_module['unit'] = 'Khối';
 $lang_module['list_student'] = 'Danh sách học sinh';
 
 $lang_module['add_class'] = 'Thêm mới lớp';
+$lang_module['edit_class'] = 'Chỉnh sửa lớp';
 $lang_module['class_delete_unsuccess'] = 'Xóa lớp không thành công!';
+$lang_module['choose_teacher'] = 'Chọn giáo viên chủ nhiệm';
+
+
 // $lang_module['class'] = '';
 
 
