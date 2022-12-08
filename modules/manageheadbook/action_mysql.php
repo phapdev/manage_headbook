@@ -112,9 +112,9 @@ $sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_
     ma_chuong_trinh int(11) NOT NULL AUTO_INCREMENT,
     ma_nam_hoc int(11) DEFAULT NULL,
     ma_mon_hoc int(11) DEFAULT NULL,
-    khoi int(2) NOT NULL,
+    grade int(2) NOT NULL,
     tiet int(5) NOT NULL,
-    ten_bai_hoc varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+    lesson varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
     PRIMARY KEY (ma_chuong_trinh)
     ) ENGINE=MyISAM;";
 

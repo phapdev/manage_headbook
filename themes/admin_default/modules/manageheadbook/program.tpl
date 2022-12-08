@@ -16,22 +16,22 @@
 				<table class="table table-striped table-bordered table-hover">
 					<tbody>
 						<tr>
-							<td class="text-right">{LANG.schoolyear} <sup class="required">(*)</sup><br><small class="text-danger">{LANG.require_select}</small></td>
+							<td class="text-right">{LANG.school_year} <sup class="required">(*)</sup><br><small class="text-danger">{LANG.require_select}</small></td>
 							<td>
-								<select class="form-control w200" name="schoolyear_{DATA_SCHOOLYEAR.key}">
-									<!-- BEGIN: loopschoolyear -->
-									<option value="{DATA_SCHOOLYEAR.key}" {DATA_SCHOOLYEAR.selected}>{DATA_SCHOOLYEAR.title}</option>
-									<!-- END: loopschoolyear -->
+								<select class="form-control w200" name="school_year_{DATA_SCHOOL_YEAR.key}">
+									<!-- BEGIN: loopschool_year -->
+									<option value="{DATA_SCHOOL_YEAR.key}" {DATA_SCHOOL_YEAR.selected}>{DATA_SCHOOL_YEAR.title}</option>
+									<!-- END: loopschool_year -->
 								</select>
 							</td>
 						</tr>
 						<tr>
-							<td class="text-right">{LANG.khoi} <sup class="required">(*)</sup><br><small class="text-danger">{LANG.require_select}</small></td>
+							<td class="text-right">{LANG.grade} <sup class="required">(*)</sup><br><small class="text-danger">{LANG.require_select}</small></td>
 							<td>
-								<select class="form-control w150" name="khoi_{DATA_KHOI.key}">
-										<!-- BEGIN: loopkhoi -->
-										<option value="{DATA_KHOI.key}" {DATA_KHOI.selected}>{DATA_KHOI.title}</option>
-										<!-- END: loopkhoi -->
+								<select class="form-control w150" name="grade_{DATA_GRADE.key}">
+										<!-- BEGIN: loopgrade -->
+										<option value="{DATA_GRADE.key}" {DATA_GRADE.selected}>{DATA_GRADE.title}</option>
+										<!-- END: loopgrade -->
 								</select>
 							</td>
 						</tr>
@@ -71,22 +71,22 @@
 			<thead>
 				<tr>
 					<th class="w100">{LANG.stt}</th>
-					<th class="w100">{LANG.namhoc}</th>
-					<th class="w100">{LANG.khoi}</th>
+					<th class="w100">{LANG.school_year}</th>
+					<th class="w100">{LANG.grade}</th>
 					<th class="w100">{LANG.subject}</th>
 					<th class="w100">{LANG.tiet}</th>
-					<th class="w100">{LANG.tenbaihoc}</th>
+					<th class="w100">{LANG.lesson}</th>
 				</tr>
 			</thead>
 			<tbody>
 				<!-- BEGIN: loop -->
 				<tr>
 					<td>{DATA.stt}</td>
-					<td>{DATA.namhoc}</td>
-					<td>{DATA.khoi}</td>
-					<td>{DATA.monhoc}</td>
+					<td>{DATA.nam_hoc}</td>
+					<td>{DATA.grade}</td>
+					<td>{DATA.mon_hoc}</td>
 					<td>{DATA.tiet}</td>
-					<td>{DATA.tenbaihoc}</td>
+					<td>{DATA.lesson}</td>
 				</tr>
 				<!-- END: loop -->
 			</tbody>
