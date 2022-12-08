@@ -15,7 +15,7 @@
             <tr>
                 <td class="text-center">{DATA_CLASS.ma_lop}</td>
                 <td>{DATA_CLASS.ten_lop}</td>
-                <td>{DATA_CLASS.ma_gvcn}</td>
+                <td>{DATA_CLASS.ten_gvcn}</td>
                 <td>{DATA_CLASS.khoi}</td>
                 <td class="text-center">
                     <a href="{DATA_CLASS.url_studentlist}" class="btn btn-default btn-xs"><i class="fa fa-fw fa-list"></i>{LANG.list_student}</a>
