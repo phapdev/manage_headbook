@@ -12,7 +12,7 @@ if (!defined('NV_IS_FILE_ADMIN')) {
 
 $page_title = $lang_module['school_year_list'];
 $page_addschoolyear = NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=addyear';
-$page_studentlist = NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=studentlist';
+$page_studentlist = NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=weeklist';
 $array = [];
 
     //get data
@@ -31,7 +31,7 @@ $array = [];
     // hien thi du lieu 
     if(!empty($array)) { 
         foreach ($array as $value) {
-            $value['url_week_list'] = NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE .'=weeklist&id=' . $value['ma_nam_hoc'] ;
+            $value['url_week_list'] = NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE .'=weeklist&schoolyearid=' . $value['ma_nam_hoc'] ;
             $value['checksess'] = md5($value['ma_nam_hoc'] . NV_CHECK_SESSION);
             $value['thoi_gian_bat_dau'] = nv_date('d/m/Y', $value['thoi_gian_bat_dau']);
             $value['thoi_gian_ket_thuc'] = nv_date('d/m/Y', $value['thoi_gian_ket_thuc']);

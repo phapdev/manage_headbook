@@ -21,7 +21,7 @@
                         <td>{LANG.start_time} <span class="red">*</span></td>
                         <td>
                             <span class="text-middle">
-                                <input class="form-control" name="thoi_gian_batdau" id="starttime" value="{DATA.thoi_gian_bat_dau}" style="width: 100px;" maxlength="10" type="text" />
+                                <input class="form-control" name="thoi_gian_bat_dau" id="starttime" value="{DATA.thoi_gian_bat_dau}" style="width: 100px;" maxlength="10" type="text" />
                             </span>
                         </td>
                     </tr>
