@@ -1,7 +1,3 @@
-# manage_headbook
-IDEA 11: Ý tưởng dự án quản lý sổ đầu bài
-
-
 # Module sổ đầu bài
 Với sự bùng nổ về công nghệ thông tin, các công tác quản lý cũng từ đó được số hóa nhằm gia tăng hiệu suất quản lý. Vì vậy Công ty cổ phần phát triển Mã nguồn mở Việt Nam (VINADES.JCS) cùng với cộng đồng mã nguồn mở NukeViet đã xây dựng module phần mềm quản lý sổ đầu bài, có phân quyền và hướng dẫn sử dụng.
 
